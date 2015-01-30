@@ -20,8 +20,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'hemodiaz',                      # Or path to database file if using sqlite3.
-        'USER': 'hemodiaz',                      # Not used with sqlite3.
-        'PASSWORD': 'hemodiaz',                  # Not used with sqlite3.
+        'USER': 'root',                      # Not used with sqlite3.
+        'PASSWORD': 'root',                  # Not used with sqlite3.
         #'PASSWORD': 'root',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
         #'HOST': '/Applications/djangostack-1.4-1/mysql/tmp/mysql.sock',                      # Set to empty string for localhost. Not used with sqlite3.
