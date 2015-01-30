@@ -1,0 +1,29 @@
+{% extends "layoutbase_bootstrap.html" %}
+{% block title %}{{block.super}} - Distributor Form{% endblock title %}
+{% block body_content %}
+    <div class="container ff">
+        <div class="row">
+            <div class="col-md-12">
+                <form>
+                    <ul>
+                        <li>NAME OF THE FIRM : {{form.nameoffirm}}</li>
+                        <li>POSTAL ADDRESS OF ADMINISTRATION OFFICE : {{form.postaladdress}}</li>
+                        <li>DRUG LICENCE NO.: {{form.druglicenceno}}</li>
+                        <li>S. T. NO. : {{form.stno}}</li>
+                        <li>C. S.T. NO. : {{form.cstno}}</li>
+                        <li>TELEPHONE /FAX NO.: {{form.telephoneno}}</li>
+                        <li>ADDRESS OF THE GODOWN/STOCK POINT : {{form.godownaddress}}</li>
+                        <li>STATUS OF BUSINESS PREMISES : {{form.businesspremisesstatus}}</li>
+                        <li>TOTAL AREA : {{form.totalarea}}</li>
+                        <li>STATUS OF FIRM : {{form.firmstatus}}</li>
+                        <li>NAME OF THE PROPRIETOR/MANAGING PARTNER : {{form.properietorname}}</li>
+                        <li>NAME OF THE CONTACT PERSON : {{form.contactpersonname}}</li>
+                        <li>PROFESSIONAL EXPERIENCE OF CONTACT PERSON : {{form.contactpersonexperience}}</li>
+                        <li>EXPERIENCE IN DIAG BUSINESS : {{form.diagbusinessexperience}}</li>
+                        <li>BRANCHES IF ANY : {{form.branches}}</li>
+                    </ul>
+                </form>
+            </div>
+        </div>
+    </div> 
+{%endblock body_content%}
