@@ -1,0 +1,46 @@
+*.py[co]
+*.class
+*.war
+*.lic
+# Packages
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+.idea
+
+#Translations
+*.mo
+
+#Mr Developer
+.mr.developer.cfg
+*.log
+logs/*
+.project
+.pydevproject
+settings.py
+
+#resumes folder
+#sumo_plus_resumes/*
+/media/js/resume/main_rsnt.js
+.codeintel
+.ropeproject
+.ropeproject/config.py
+.ropeproject/globalnames
+.ropeproject/history
+.ropeproject/objectdb
+
