@@ -1,0 +1,19 @@
+{% extends "layoutbase.html" %}
+{% block title %}{{block.super}} - About Us{% endblock title %}
+{% block body_content %}
+<div class="clear"></div>
+
+<div class="breadcrums"><span class="home"></span><a href="/">Home</a> &gt; About Us</div>
+<div class="blueband"><div class="wrap">About Us</div></div>
+<div class="clear"></div>
+<div class="content" style="font-size:14px">
+<p>
+<img src="{{MEDIA_URL}}images/Dr-Diaz-logo.gif" class="right" alt="Dr Diaz" />
+{{abt.0|safe}}
+
+</p>
+
+</div>
+<div class="clear"></div>
+<input type="hidden" value="aboutus" id="inpheader" />
+{% endblock body_content %}

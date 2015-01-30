@@ -1,0 +1,142 @@
+{% extends "layoutbase_bootstrap.html" %}
+{% block title %}{{subc}} | {% if selecat.0.pg_title%}{{selecat.0.pg_title}}{%else%}{{block.super}} - {{selecat.0.c_name}} Categories{%endif%}{% endblock title %}
+
+{% block meta %}
+    <meta name="keywords" content="{% for result in items %}{{result.product_name}},{% endfor %}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{subc}} | {% if selecat.0.pg_title%}{{selecat.0.pg_title}}{%else%}{{block.super}} - {{selecat.0.c_name}} Categories{%endif%}" />
+{% endblock meta %}
+{% block body_content %}
+    <div id="fb-root"></div>
+    <script>
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '259709974202253',
+                status     : true,
+                xfbml      : true
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/all.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <div class="container ff">
+    <ol class="breadcrumb">
+        <li><span class="glyphicon glyphicon-home"></span>
+            <a href="{%url index%}">Home</a></li>
+        <li class="active">{{selecat.0.c_name}}</li>
+    </ol>
+        <div class="row">
+<div class="col-md-3 col-sm-4 col-xs-12">
+
+<div class="bs-sidebar hidden-print affix-top " role="complementary">
+
+<div class="lftmenu visible-xs">
+
+    <a href="#menu" class=" menu-trigger ss-icon"><span class="glyphicon glyphicon-filter "></span>&nbsp;Refine</a>
+</div>
+    <ul id="menu" class="nav bs-sidenav">
+{% for k,v in catdic.items %}
+    <li {% if forloop.first %}class="active"{% endif %} ><a href="javascript:void(0)" >{{v.0}}
+<span class="minus cls_sign"></span>
+</a>
+<ul class="nav">
+{% for child in v.1 %}
+    {% if subcatid == child.keys.0 %}
+<li>
+    <a href="javascript:void(0)" class="current"><span class="arrow"></span>{{child.values.0}}</a>
+
+    {%else%}
+    <li>
+    <a href="/{{v.0|slugify}}/{{child.values.0|slugify}}/{{k}}/{{child.keys.0}}" >{{child.values.0}}</a>
+    {%endif%}
+    </li>
+{% endfor %}
+</ul></li>
+{%endfor%}
+    </ul>
+</div>
+</div>
+
+<div class="col-md-9 col-sm-8 col-xs-12">
+    {%if items%}
+{% for result in items %} 
+
+<h2 id="nm_{{ result.id }}">{{result.product_name}}</h2>
+    <div class="col-xs-12 col-sm-4 col-md-3 dvimg">
+<img src="{{MEDIA_URL}}{{result.prod_image}}" id="img_{{ result.id }}"  class="img-thumbnail"  alt=""  align="left"/>
+
+
+    </div>
+<div class="col-xs-12 col-sm-8 col-md-9" role="main">
+<div class="page-header ph"><h4>Features
+    <img style="cursor: pointer;float:right;margin-right:10px" src="{{ MEDIA_URL }}images/fshare.gif" class="cls_share" data-id="{{ result.id }}" alt="Facebook share" />
+    </h4>
+
+</div>
+<div class="items ft " id="desc_{{ result.id }}" >
+    {{result.product_desc|safe}}
+</div>
+</div>
+    <div class="clear"></div>
+    <br/>
+
+{%endfor%}
+
+{%else%}
+<div style="margin:0 auto;text-align:center;padding-top:100px">
+    <img src="{{MEDIA_URL}}images/comingsoon.jpg" alt="" />
+</div>
+{%endif%}
+</div>
+<div class="clear"></div>
+<input type="hidden" value="Product" id="inpheader" />
+
+    </div>   </div>
+{%endblock%}
+
+{% block ASYJS %}
+{{ block.super }}
+    <script type="text/javascript" src="{{MEDIA_URL}}js/jquery.jpanelmenu.min.js"></script>
+    <script type="text/javascript" src="{{MEDIA_URL}}js/jRespond.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            jPanelMenu = $.jPanelMenu();
+        var e = jRespond([{
+            label: "small",
+            enter: 0,
+            exit: 750
+        }, {
+            label: "large",
+            enter: 750,
+            exit: 1e4
+        }]);
+        e.addFunc({
+            breakpoint: "small",
+            enter: function () {
+                jPanelMenu.on();
+                $(document).on("click", jPanelMenu.menu + " li a", function (e) {
+                    jPanelMenu.isOpen() && $(e.target).attr("href").substring(0, 1) == "#" && jPanelMenu.close()
+                })
+                $('#menu').hide();
+            },
+            exit: function () {
+                jPanelMenu.off();
+                $(document).off("click", jPanelMenu.menu + " li a")
+                $('#menu').show();
+            }
+        })
+		if(top.window.location.href.indexOf('www')>=0){
+			$('.cls_share').css({display:'block'});
+		}
+		
+        });
+
+    </script>
+
+{% endblock ASYJS %}

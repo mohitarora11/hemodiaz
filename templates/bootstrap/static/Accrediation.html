@@ -1,0 +1,29 @@
+{% extends "layoutbase_bootstrap.html" %}
+{% block title %}{{block.super}} - Accrediation{% endblock title %}
+{% block body_content %}
+
+    <div class="container ff">
+        <ol class="breadcrumb">
+            <li><span class="glyphicon glyphicon-home"></span>
+                <a href="{%url index%}">Home</a></li>
+            <li class="active">Accrediation</li>
+        </ol>
+    <div class="row">
+
+
+
+    <div class="col-md-6">
+        <div class="ml">
+<img class="img-thumbnail" src="{{MEDIA_URL}}images/ISO_n.jpeg"   alt="ISO"/>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="ml">
+    <img class="img-thumbnail" alt="BIS" src="/media/images/BIS.Certificate.jpg" />
+            </div>
+    </div>
+
+</div></div>
+
+{% endblock body_content %}

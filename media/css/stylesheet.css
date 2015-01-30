@@ -1,0 +1,269 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{height:100%}
+body{ margin:auto; padding:0;height:100%;font:normal 12px arial;color:#666666;}
+
+a { color:#0172ff; text-decoration:none;}
+.header { background:url(/media/images/gradient.png) repeat-x; height:69px; }
+.header .wrap { width:960px; margin:auto;}
+.header .wrap strong { background:url(/media/images/sprite.png) no-repeat; width:197px; height:56px; float:left; margin:7px 0 0 0 ; }
+.header .wrap ul { float:right; margin:0; padding:0; list-style:none; }
+.header .wrap li {float: left;font: 13px arial;margin-top: 20px;padding: 5px 10px;}
+.header .active {color:#fff; background:#0073e5;  -moz-box-shadow:    inset 0 0 10px #0459ae;
+   -webkit-box-shadow: inset 0 0 10px #0459ae;
+   box-shadow:         inset 0 0 10px #0459ae; height:20px;  }
+
+.header .active a,.header .active a:hover{color:#fff}
+
+
+.maincont { width:960px; margin:auto; }
+.maincont slide { float:left;}
+h1{font: 28px/55px arial;}
+
+.blueband { background:url(/media/images/gradient.png) 0 -89px repeat-x;  height:50px; }
+.wrap1 { width:960px; font:normal 32px arial; color:#333; line-height:55px; margin:auto; }
+.category { width:960px;  margin:auto;  }
+.category strong {float:left;  font:normal 18px arial;line-height:70px; color:#333; float:left; text-transform:uppercase; display:block; width:960px; } 
+.category ul { list-style:none; margin:0; padding:0; }
+.category li { list-style:none;  padding:0; width:212px; float:left; }
+.category  .knowmore { font:normal 11px arial;   color:#fff; position:absolute;  float:left; margin:112px 0 0 0px;  }
+.category  a.knowmore  { padding:5px; color:#fff; text-decoration:none;background:#333; opacity:0.8; float:left; display:block; z-index:10; }
+.category  a:hover.knowmore { background:#0073e5; color:#fff; text-decoration:none; background:#333; opacity:100;  float:left;}
+
+#cont{position:relative;min-height:90%;padding-bottom:50px}
+.footer {
+    background: none repeat scroll 0 0 #e1e1e1;
+    border-top: 1px solid #E6E6E6;    
+    width: 100%;
+    margin-top:10px;
+    position:absolute;
+    bottom:0;
+    height:40px;
+}
+.footer .wrap {width:960px; margin:auto; color:#666; font:normal 11px arial; text-align:right; line-height:50px;  }
+.clear { clear:both;}
+.mar { margin-right:37px;}
+/*
+    AnythingSlider v1.4
+
+    By Chris Coyier: http://css-tricks.com
+    with major improvements by Doug Neiner: http://pixelgraphics.us/
+    based on work by Remy Sharp: http://jqueryfordesigners.com/
+*/
+
+/******* SET DEFAULT DIMENSIONS HERE ********/
+div.anythingSlider {
+	width: 990px;
+	height: 285px;
+	margin: 0 auto;float:left;
+}
+
+/****** SET COLORS HERE *******/
+/* Default State */
+div.anythingSlider .thumbNav a.cur, div.anythingSlider .thumbNav a {
+	background: red;
+}
+div.anythingSlider .anythingWindow {
+	/*border-top: 3px solid #777;
+	border-bottom: 3px solid #777;*/
+}
+/* Active State */
+div.anythingSlider.activeSlider .thumbNav a { width:22px; height:18px; background:url(/media/images/play.gif) -27px -4px no-repeat; margin:0 0 0 5px}
+
+div.anythingSlider.activeSlider .thumbNav a.cur, div.anythingSlider.activeSlider .thumbNav a:hover{ width:18px; height:18px; background:url(/media/images/play.gif)  -2px -3px no-repeat; }
+div.anythingSlider.activeSlider .anythingWindow {
+	border-color: #7C9127;
+}
+
+/**** DO NOT CHANGE BELOW THIS LINE ****/
+/* anythingSlider viewport window */
+div.anythingSlider .anythingWindow {
+	overflow: hidden;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+/* wrapper: 45px right & left padding for the arrows, 28px @ bottom for naviagation */
+div.anythingSlider {
+	position: relative;
+	/*padding: 0 45px 28px 45px;*/
+}
+/* anythingSlider base UL */
+ul.anythingBase {
+	background: transparent;
+	list-style: none;
+	position: absolute;
+	top: 0; left: 0;
+	margin: 0;
+	padding:0;
+}
+ul.anythingBase li{min-height:336px; }
+ul.anythingBase li.panel {
+	background: transparent;
+	display: block;
+	float: left;
+	padding: 0;
+	margin: 0;
+
+}
+
+ul.anythingBase li.panel img{ float:right; padding:15PX 0 0 0;
+}
+
+/* Navigation Arrows */
+div.anythingSlider .arrow {
+	top: 50%;
+	position: absolute;
+	display: block;
+}
+div.anythingSlider .arrow a {
+	display: none;
+	height: 120px;
+	margin-top: -60px;
+
+	text-align: center;
+	outline: 0;
+	/*background: url(/media/images/arrows.png) no-repeat;*/
+	text-indent: -9999px;
+}
+div.anythingSlider .forward { right: 0; }
+div.anythingSlider .back { left: 0; }
+div.anythingSlider .forward a { background-position: 0 -40px; }
+div.anythingSlider .back a { background-position: -88px -40px; }
+div.anythingSlider .forward a:hover, div.anythingSlider .forward a.hover { background-position: 0 -240px; }
+div.anythingSlider .back a:hover, div.anythingSlider .back a.hover { background-position: -88px -240px; }
+
+/* Navigation Links */
+div.anythingSlider .thumbNav { margin: 0; position:relative; float:left; margin:8px 0 0 289px;width:291px; text-align:center; padding:0 0 0 111px; }
+div.anythingSlider .thumbNav div{width:18px; float:left; height:23px; padding:6px 4px 0 0;}
+div.anythingSlider .thumbNav div a{color: black;
+	font: 0px Georgia, Serif; display:block;
+	
+	text-decoration: none;
+	margin-left:5px;width:24px; height:23px;}
+	div.anythingSlider .thumbNav a:hover { background-image: none; }
+div.anythingSlider .thumbNav li {/* display: inline; */ float:left; list-style-type:none; height:29px; padding-top:6px}
+div.anythingSlider .thumbNav a {
+	color: black;
+	font: 0px Georgia, Serif; display:block;
+	
+	text-decoration: none;
+	margin-left:5px;
+	
+	
+	
+	
+}
+div.anythingSlider .thumbNav a:hover { background-image: none; }
+
+/* slider autoplay right-to-left, reverse order of nav links to look better */
+div.anythingSlider.rtl .thumbNav a { float: right; } /* reverse order of nav links */
+div.anythingSlider.rtl .thumbNav { float: left; }    /* move nav link group to left */
+
+.content { font:normal 12px arial; color:#666; width:960px; margin:auto; padding:20px 0 0 0;}
+.content p { line-height:16px; margin:0 0 15px 0;  }
+.content h1 { font:normal 18px arial; color:#0073e5; margin:10px 0; padding:0; }
+.content .add { background:url(media/images/07-map-marker.jpg) 0 5px no-repeat; width:16px; height:26px; float:left;}
+
+
+.blueband .wrap {
+    color: #FFFFFF;
+    font: 32px/55px arial;
+    margin: auto;
+    width: 960px;
+}
+
+.blueband .wrap1{
+	font: 28px/55px arial;
+}
+
+.spotlight { margin:0px auto; width:960px;}
+.slideShow { width:960px;}
+.spn{font:normal 13px arial;color:#0172ff;line-height:25px}
+.mleft{margin-left:41px}
+.disable{display:none !important}
+
+
+.breadcrums {color: #666666;font: 12px arial;margin:5px auto;width: 960px;}
+.breadcrums .home { background:url(/media/images/sprite.png) -9px -114px no-repeat; width:21px; height:14px; float:left;}
+.listing, .listingblue  {color: #666666;font: 12px arial;margin:5px auto;width: 940px; padding:5px 10px; }
+.listing strong, .listingblue strong { font:normal 24px Arial, Helvetica, sans-serif; float:left; display:block; width:100%;}
+.listingblue { background:#f1f6fc; }
+.listing em a, .listingblue em a { background:url(/media/images/sprite.png) -2px -71px no-repeat; font:bold 12px  Arial, Helvetica, sans-serif; display:block; margin:15px 0; width:105px; height:20px; text-align:center; color:#dcdee5; padding:6px 0;}
+
+
+
+
+.product {width:960px; margin:0 auto; clear:both;}
+.product .leftnav { width:240px; background:#f2f2f2; border:solid 1px #cfcfcf; border-top:none; -moz-box-shadow:    2px 2px 2px 2px #dddddd;-webkit-box-shadow:2px 2px 2px 2px #dddddd; box-shadow:2px 2px 2px 2px #dddddd; border-radius:0px 0px 4px 4px; padding:5px; font:bold 12px Arial, Helvetica, sans-serif;}
+.product .leftnav ul {  list-style:none; margin:5px 0;padding:0px;border-bottom:dashed 1px #757575;width:235px;float:left;}
+.product .leftnav ul a.tit{font:bold 14px arial;color:#333;text-transform:uppercase}
+.product .leftnav ul li ul{border:none; margin:0 0 0 10px;font-weight:normal}
+.product .leftnav .current { background:#0073e5; padding:4px 4px 4px 8px; width:230px; color:#fff; border-radius:4px; float:left; margin-bottom:5px;}
+.product .leftnav .current .arrow { float:right; color:#fff; padding:0 10px 0 0;}
+.bdr{}
+
+.product .leftnav .link {padding:4px 4px 4px 8px;}
+.ProductListingCointainer { float:right; width:665px; }
+ .productlisting { width:655px; padding:5px; float:left; border-bottom:solid 1px #eaeaea;}
+.productlisting h2 { color:#0073e5; font:normal 18px Arial, Helvetica, sans-serif; width:100%; padding:5px 0;}
+.borderdash { border-top:dashed 1px #7a7a7a; font-size:0px; padding:0; width:100%; margin:0;}
+.productlisting ul{ width:430px; float:right; padding:5px 0;list-style:none}
+.productlisting ul li { padding:3px 0; float:left;}
+.str{ color:#000000;}
+.strdv{margin:10px 0px 3px 10px;width:65%}
+.productlisting ul li span { float:left;}
+.productlisting .icon{ width:20px;}
+.productlisting .item{width:425px;}
+.productlisting img{ margin:30px 10px 10px 0;}
+.items ul li{background: url("/media/images/arr.png") no-repeat scroll 0 6px transparent;
+    display: block;
+    float: left;
+    padding: 3px 0 3px 10px;
+    width: 88%;}
+.product .leftnav .link .minus {
+    background: url("/media/images/sprite.png") no-repeat scroll 0 -154px transparent;
+    display: block;
+    float: right;
+    height: 13px;
+    width: 13px;
+}
+
+.product .leftnav .link .plus {
+    background: url("/media/images/sprite.png") no-repeat scroll 0 -175px transparent;
+    display: block;
+    float: right;
+    height: 13px;
+    text-decoration: none;
+    width: 13px;
+}
+
+.profile {
+    
+    float: left;
+    margin: 30px 0 0;
+    padding: 10px;
+    position: relative;
+    width: 446px;
+}
+.profilepic { background:#ffffff; padding:5px 5px 0 5px; position:absolute; top:-20px; left:12px;}
+.profile .spn{padding-left:150px;float:left;width:90%;line-height:normal;color:#666;}
+.profile strong { font:bold 18px Arial, Helvetica, sans-serif; text-shadow:1px 1px 1px #fff; float:left; display:block; width:100%; margin-bottom:10px;}
+.profile span { margin-right:15px; float:left;}
+.profile span img { margin:2px 5px 0 0; float:left;}
+
+.profile p{
+    background: none repeat scroll 0 0 #F4F1EF;
+    border: 1px solid #E5E5E5;
+    display: block;
+    float: left;
+    margin-top: 47px;
+    min-height: 225px;
+    padding: 15px;
+    text-align: justify;
+    color:#333;
+}
+a img{border:none}
+.right{float:right;}
+.left{float:left}

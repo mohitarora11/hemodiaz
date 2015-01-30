@@ -1,0 +1,77 @@
+{% extends "layoutbase.html" %}
+{% block title %}
+{% if selecat.0.pg_title%}
+  {{selecat.0.pg_title}}
+{%else%}
+{{block.super}} - {{selecat.0.c_name}} Categories
+{%endif%}
+
+{% endblock title %}
+{% block body_content %}
+<div class="clear"></div>
+
+
+
+
+<div class="breadcrums"><span class="home"></span><a href="/">Home</a> &gt; <a href="{%url website.views.show_category%}">Product</a> &gt; {{selecat.0.c_name}}</div>
+
+<div class="blueband">
+  <div class="wrap">Products</div></div>
+<div class="clear"></div>
+
+
+<div class="product">
+<div class="leftnav left">
+    
+{% for k,v in catdic.items %}
+<ul class="bdrtp"><li class="link bdr"><a href="javascript:void(0)" class="tit">{{v.0}}
+<span class="minus cls_sign"></span>
+</a></li>
+<li><ul class="ulchild">
+{% for child in v.1 %}
+
+
+    
+    {% if subcatid == child.keys.0 %}
+<li >
+    <a href="javascript:void(0)" class="current"><span class="arrow">&gt;</span>{{child.values.0}}</a>
+
+    {%else%}
+    <li class="link">
+    <a href="/{{v.0|slugify}}/{{child.values.0|slugify}}/{{k}}/{{child.keys.0}}" >{{child.values.0}}</a>
+    {%endif%}
+    </li>
+{% endfor %}
+</ul></li>
+</ul>
+
+{%endfor%}
+</div>
+
+
+<div class="ProductListingCointainer">
+    {%if items%}
+{% for result in items %} 
+<div class="productlisting">
+<h2>{{result.product_name}}</h2>
+<img src="{{MEDIA_URL}}{{result.prod_image}}"  alt=""  align="left"/>
+<div class="left strdv">
+<strong class="str left">FEATURES</strong>
+<div class="borderdash left"></div>
+</div>
+<div class="items">
+    {{result.product_desc|safe}}
+    
+</div>
+</div>
+{%endfor%}
+
+{%else%}
+<div style="margin:0 auto;text-align:center;padding-top:100px">
+    <img src="{{MEDIA_URL}}images/comingsoon.jpg" alt="" />
+</div>
+{%endif%}
+</div></div>
+<div class="clear"></div>
+<input type="hidden" value="Product" id="inpheader" />
+{%endblock%}

@@ -1,0 +1,60 @@
+{% extends "layoutbase.html" %}
+{% block title %}Healthcare Products - Homecare Products | List of Healthcare Products | Medical Products{% endblock title %}
+{%block meta%}
+<meta name="description" content="Get Information on List of Medical Products - Products that Detect Diseases, Conditions, Infections, Professional Healthcare Service that can provided easily at patient's home" />
+
+{%endblock meta%}
+{% block body_content %}
+{% load tags %}
+<div class="clear"></div>
+
+
+<div class="breadcrums"><span class="home"></span><a href="/">Home</a> &gt; Product</div>
+
+<div class="blueband">
+  <div class="wrap wrap1"><h1>Product Categories</h1></div></div>
+<div class="clear"></div>
+
+{% for result in cat %} 
+<div class="{% cycle 'listing' 'listingblue' %}">
+  <strong>{{result.c_name}}</strong>
+  {{result.c_desc}}  
+  <em>
+    
+        {% with subcat|get_sub:result.id as val %}
+        <a href="/{{result.c_name|slugify}}/{{val.1|slugify}}/{{result.id}}/{{val.0}}">Click to Enter</a>
+        {% endwith %}
+  </em>
+</div>
+{%endfor%}
+  <!--
+<div class="listing">
+
+<strong><a href="underConstruction">In Vitro Diagnostics</a></strong>
+(IVD) In vitro diagnostics are tests that can detect diseases, conditions, or infections. Some tests are used in laboratory or other health professional settings and other
+tests are for consumers to use at home. IVD Devices includes instruments Intended to Perform Diagnosis from assays in a Test Tube, or in a controlled environment
+outside a living organism. Purposes of testing include protecting the blood supply, monitoring the levels of drugs given and providing information to assist in the
+diagnosis and treatment of disease. IVD products include reagents, instruments, and systems intended for use in diagnosis and monitoring of disease or other conditions.
+Common tests include blood & Urine tests for various components, liver enzymesand levels of electrolytes etc,
+<em><a href="underConstruction">Click to Enter</a></em>
+</div>
+<div class="listingblue">
+<strong><a href="underConstruction">Patient Care</a></strong>
+Patient Care includes the Health care services for the prevention, treatment, and management of illness and the preservation of mental and physical well-being. Patient Care Devices includes the devices that aid a health care professional toaccurately investigate and treat any health condition. These devices are for use by Healthcare processionals, medical practitioners, patients or those related to the aid of patients. Common patient care devices are used in Hospitals, Laboratories, Nursing Homes, Health care institutions and related medical Homes. A well-designed patient care system can streamline workflow, reduce the risk of medical errorsand improve the patient care experience for caregivers and patients alike. Devices include Patient Monitors, Ventilators, Defibrillators, Electrocardiographs, Ultrasound, and MRI etc.<em><a href="underConstruction">Click to Enter</a></em>
+</div>
+<div class="listing">
+<strong><a href="underConstruction">Home Health care</a></strong>Home Care refers to the supportive care provided at the patients home. Home Health Devices includes the instruments that are made available at ease for use by<br />
+health care professionals, caregivers or patients themselves. It includes devices thathelp patients keep a track of their illness, know the extent of their cure and recovery<br />
+and to allow them to make changes in lifestyle based on the results, It also includes devices for evaluation of any medical condition at ease by the patient himself/herself<br />
+for example Home use Pregnancy tests, Malaria detection tests etc.These aregenerally non invasive devices that can be used by a non medical personnel. Other<br />
+HH Devices includes Portable BP Monitors, Thermometers, Home Use Glucose meters, Weighing scales etc.<em><a href="underConstruction">Click to Enter</a></em>
+</div>
+<div class="listingblue">
+<strong><a href="underConstruction">Pulmonary Care</a></strong>
+Pulmonology deals with disease involving the respiratory tract which encompasses pathological conditions affecting the organs and tissues that enable breathing, and includes conditions of the upper respiratory tract & lungs, the nerves and muscles of breathing. Common Pulmonary diseases include Asthma, Sleep Apnea, respiratory tract infection, pneumonia etc. There are various instruments available for treatment of patients dealing with the respiratory illness at home as well as in hospital, for example:- Portable Oxygen concentrator, CPAP & BiPAP machines for the treatment of sleep apnea, Flexible bronchoscopes, peak flow meters etc. New technologies are expected to enable screening and, hence, earlier diagnosis and characterization of a full range of pulmonary diseases.<em><a href="underConstruction">Click to Enter</a></em>
+</div>
+-->
+
+<div class="clear"></div>
+<input type="hidden" value="Product" id="inpheader" />
+{% endblock body_content %}

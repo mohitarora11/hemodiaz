@@ -1,0 +1,60 @@
+{% block doctype %}<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">{% endblock doctype %}
+
+{% block html %}
+<html xmlns="http://www.w3.org/1999/xhtml">
+{% endblock html %}
+    <!-- SERVER:{{SERVER}} -->
+{% block head %}
+<head>
+	<title>{% block title %}Hemodiaz.com{% endblock title %}</title>
+	{% block meta %}{% endblock meta %}
+	<link rel="SHORTCUT ICON" href="{{MEDIA_URL}}images/favicon.ico" />
+	{% block css %}
+        <link href="{{MEDIA_URL}}css/stylesheet.css" rel="stylesheet" type="text/css" />
+        {% endblock css%}
+	{% block headjs %}{% endblock headjs%}
+	
+</head>
+{% endblock head %}
+<body>
+
+	<div id="cont">
+	{% block opaque %}<div id="opaque"></div>{% endblock opaque %}
+	{% block login %}{% endblock login %}
+	
+	{% block header %}{%include "static/header.html"%}{% endblock header %}
+        
+	{% block body %}    
+            
+            {% block body_content %}{% endblock body_content %}
+            {% block bodycontentright %}{% endblock bodycontentright %}
+	    
+	{% endblock body %}
+	{% block footer %}{%include "static/footer.html"%}{% endblock footer %}
+	
+	    <div class="clear"></div>
+	</div>
+{% block ASYJS %}
+<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.min.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}js/jquery.livequery.js"></script>
+<script type="text/javascript" src="{{MEDIA_URL}}js/main.js"></script>
+{% endblock ASYJS %}
+
+{% block pagejs %}{% endblock pagejs %}
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-34681626-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</body>
+</html>
+

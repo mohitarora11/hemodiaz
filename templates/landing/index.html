@@ -1,0 +1,89 @@
+{% extends "layoutbase_bootstrap.html" %}
+{% block title %}Hemodiaz - Healthcare | Home Health Care | Medical Equipment | Healthcare Products{% endblock title %}
+{% block meta %}
+<meta name="description" content="Find Complete Range of Home Healthcare Products - Patient Care, Pulmonary Care, Vitro Diagnostics, IVD Instruments, Get Useful and Entire Details on All Medical Products">
+<meta name="keywords" content="Healthcare, Healthcare Products, Medical Healthcare Products, Homecare Medical Products, Homecare Healthcare Equipments, Range of Healthcare Products and Equipments">
+{% endblock meta %}
+{% block body_content %}
+
+<div class="maincont"><div id="mid"><!--js starts-->
+<div class="spotlight">
+    <div class="slideShow">
+    
+    <ul id="slider1">
+   
+      <li>
+        <div class="wrap1">In Vitro Diagnostics</div>
+        <img src="{{MEDIA_URL}}images/iv-dai_js.jpg" alt="In Vitro Diagnostics" align="right" />        
+        </li>
+        <li>
+        <div class="wrap1">Patient care</div>
+        <img src="{{MEDIA_URL}}images/slide2.jpg" alt="Patient care" align="right" /></li>
+         <li>
+		<div class="wrap1">Pulmonary Care</div>
+        <img src="{{MEDIA_URL}}images/pul_cr_js.jpg" alt="Pulmonary Care" align="right" /></li>
+        <li>
+		<div class="wrap1">Home Health</div>
+                 <img src="{{MEDIA_URL}}images/image.jpeg" alt="Home Health" align="right" /></li>
+          
+    </ul>
+  </div>
+</div><!--js ends--></div></div>
+<div class="clear"></div>
+<div class="blueband" style="height:42px"></div>
+<div class="clear"></div>
+<div class="category">
+<strong>Categories</strong>
+<ul style="width:53%;float:left" >
+<li class="mar"><a class="knowmore" href="categories">Know more</a>
+	<span class="spn"><a href="categories">In Vitro Diagnostics</a></span>
+	<img src="{{MEDIA_URL}}images/iv-dai.jpg" width="212" height="112" alt="img" /></li>
+<li class="mar"><a class="knowmore" href="categories">Know more</a>
+	<span class="spn"><a href="categories">Home Health</a></span>
+	<img src="{{MEDIA_URL}}images/homehealth.jpg" width="212" height="112" alt="img" /></li>
+<li class="mar"><a class="knowmore" href="categories">Know more</a>
+	<span class="spn"><a href="categories">Patient care</a></span>
+	<img src="{{MEDIA_URL}}images/pat_cr.jpg" width="212" height="112" alt="img" /></li>
+<li><a class="knowmore" href="categories">Know more</a>
+	<span class="spn"><a href="categories">Pulmonary Care</a></span>
+	<img src="{{MEDIA_URL}}images/pul_cr.jpg" width="212" height="112" alt="img" /></li>
+</ul>
+<ul>
+    <li style="width:425px;margin-top: 24px">
+	<!--
+<object width="425" height="250">
+  <param name="movie" value="http://youtu.be/kJmQLMTddsc" />
+  <param name="wmode" value="transparent" />
+  <embed src="http://youtu.be/kJmQLMTddsc"
+         type="application/x-shockwave-flash"
+         wmode="transparent" width="425" height="250" />
+</object>-->
+	<iframe width="425" height="250" src="http://www.youtube.com/embed/kJmQLMTddsc" frameborder="0" allowfullscreen></iframe>
+    </li>
+    
+</ul>
+
+
+</div>
+<div class="clear"></div>
+<input type="hidden" value="home" id="inpheader" />
+{% endblock body_content %}
+
+
+
+
+{% block pagejs %}
+<script src="{{MEDIA_URL}}js/jquery.anythingslider.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+$(function () {
+	$('#slider1').anythingSlider({
+	width : 960,          // Override the default CSS width
+	easing: 'easeInOutExpo',
+	height: 350
+	});
+
+});
+	
+</script>
+
+{% endblock pagejs %}

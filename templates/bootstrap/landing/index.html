@@ -1,0 +1,115 @@
+{% extends "layoutbase_bootstrap.html" %}
+{% load tags %}
+{% block title %}Hemodiaz - Healthcare | Home Health Care | Medical Equipment | Healthcare Products{% endblock title %}
+{% block meta %}
+<meta name="description" content="Find Complete Range of Home Healthcare Products - Patient Care, Pulmonary Care, Vitro Diagnostics, IVD Instruments, Get Useful and Entire Details on All Medical Products">
+<meta name="keywords" content="Healthcare, Healthcare Products, Medical Healthcare Products, Homecare Medical Products, Homecare Healthcare Equipments, Range of Healthcare Products and Equipments">
+{% endblock meta %}
+{% block body_content %}
+    <div class="content bg">
+            <div class="container ff">
+                <div id="heroSlider" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#heroSlider" data-slide-to="0" class="active"></li>
+                        <li data-target="#heroSlider" data-slide-to="1"></li>
+                        <li data-target="#heroSlider" data-slide-to="2"></li>
+                        <li data-target="#heroSlider" data-slide-to="3"></li>
+                        <li data-target="#heroSlider" data-slide-to="4"></li>
+                    </ol>
+                    <div class="carousel-inner">
+
+                        {% for result in cat %}
+                        <div class="item {% if forloop.first %}active{% endif %}">
+                            <div class="jumbotron">
+                                <div class="row">
+                                    <div class="col-md-6 marketting-info">
+                                        <h1>{{result.c_name}}</h1>
+                                        <p>
+                                            {{result.c_desc}}
+                                        </p>
+                                        <h3>
+                                            {% with subcat|get_sub:result.id as val %}
+                                            <a href="/{{result.c_name|slugify}}/{{val.1|slugify}}/{{result.id}}/{{val.0}}" class="btn btn-lg btn-primary">Learn more</a>
+                                            {% endwith %}
+                                        </h3>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <img src="/media/{{result.bigimage}}" alt="{{result.c_name}}" class="img-thumbnail" />
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                    <a class="left carousel-control" href="#heroSlider" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                    <a class="right carousel-control" href="#heroSlider" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                </div>
+            </div>
+
+
+
+        <div class="clear"></div>
+
+
+    </div>
+
+
+
+
+
+
+
+
+<!--
+
+<div class="category">
+<strong>Categories</strong>
+<ul style="width:53%;float:left" >
+<li class="mar"><a class="knowmore" href="categories">Know more</a>
+	<span class="spn"><a href="categories">In Vitro Diagnostics</a></span>
+	<img src="{{MEDIA_URL}}images/iv-dai.jpg" width="212" height="112" alt="img" /></li>
+<li class="mar"><a class="knowmore" href="categories">Know more</a>
+	<span class="spn"><a href="categories">Home Health</a></span>
+	<img src="{{MEDIA_URL}}images/homehealth.jpg" width="212" height="112" alt="img" /></li>
+<li class="mar"><a class="knowmore" href="categories">Know more</a>
+	<span class="spn"><a href="categories">Patient care</a></span>
+	<img src="{{MEDIA_URL}}images/pat_cr.jpg" width="212" height="112" alt="img" /></li>
+<li><a class="knowmore" href="categories">Know more</a>
+	<span class="spn"><a href="categories">Pulmonary Care</a></span>
+	<img src="{{MEDIA_URL}}images/pul_cr.jpg" width="212" height="112" alt="img" /></li>
+</ul>
+<ul>
+    <li style="width:425px;margin-top: 24px">
+
+	<iframe width="425" height="250" src="http://www.youtube.com/embed/kJmQLMTddsc" frameborder="0" allowfullscreen></iframe>
+    </li>
+    
+</ul>
+
+
+</div>
+<div class="clear"></div>-->
+<input type="hidden" value="home" id="inpheader" />
+
+{% endblock body_content %}
+
+
+
+
+{% block pagejs %}
+<script src="{{MEDIA_URL}}js/jquery.anythingslider.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+/*$(function () {
+	$('#slider1').anythingSlider({
+	width : 960,          // Override the default CSS width
+	easing: 'easeInOutExpo',
+	height: 350
+	});
+
+});
+*/
+</script>
+
+{% endblock pagejs %}

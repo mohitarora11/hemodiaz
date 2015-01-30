@@ -1,0 +1,16 @@
+{% extends "layoutbase.html" %}
+{% block title %}{{block.super}} - Accreditation{% endblock title %}
+{% block body_content %}
+<div class="clear"></div>
+
+<div class="breadcrums"><span class="home"></span><a href="/">Home</a> &gt; Accreditation</div>
+<div class="blueband">
+  <div class="wrap">Accreditation</div></div>
+<div class="content" style="text-align:center">
+<img src="{{MEDIA_URL}}images/ISO_n.jpeg" style="text-align:center;margin-right:10px"  alt="ISO"/>
+<img src="{{MEDIA_URL}}images/BIS.Certificate.jpg" style="text-align:center"  alt="BIS"/>
+
+</div>
+<div class="clear"></div>
+<input type="hidden" value="accrediation" id="inpheader" />
+{% endblock body_content %}

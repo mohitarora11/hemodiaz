@@ -1,0 +1,44 @@
+{% load tags %}
+
+<header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+    <div class="container">
+    <!-- Start: Navigation wrapper -->
+
+                <div class="navbar-header">
+                <!-- Below button used for responsive navigation -->
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="{%url index%}" class="navbar-brand">
+                    <img src="{{ MEDIA_URL }}images/logo.png" alt="Hemodiaz" />
+                </a>
+                </div>
+                <!-- Start: Primary navigation -->
+                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Products <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                {% for result in cat %}
+                                    <li>
+                                        {% with subcat|get_sub:result.id as val %}
+                                            <a href="/{{result.c_name|slugify}}/{{val.1|slugify}}/{{result.id}}/{{val.0}}" >{{result.c_name}}</a>
+                                        {% endwith %}
+                                        </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                        <li><a href="{%url website.views.show_aboutus%}">About</a></li>
+                        <li id="management" ><a href="{%url website.views.management%}">Management</a></li>
+                        <li id="accrediation" ><a href="{%url accrediation%}">Accrediation</a></li>
+                        <li id="contactus" ><a href="{%url contactus%}">Contact us</a></li>
+                    </ul>
+
+                </nav>
+
+    <!-- End: Navigation wrapper -->
+    </div>
+</header>
