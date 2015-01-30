@@ -1,4 +1,6 @@
 *.py[co]
+*.pyc
+*.*~
 *.class
 *.war
 *.lic
